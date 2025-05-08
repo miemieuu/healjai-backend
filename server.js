@@ -458,7 +458,7 @@ app.delete('/api/condoforsale/:id', (req, res) => {
 
   
 
-  const PORT = 4229;
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://www.healjaiproperty.com:${PORT}`);
-  });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
