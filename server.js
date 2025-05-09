@@ -19,6 +19,12 @@ const db = mysql.createPool({
   queueLimit: 0
 });
 
+// 👇 เพิ่ม route หลักไว้ตอบ root path
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+
 // API ดึงข้อมูลคอนโดทั้งหมด
 app.get('/api/condoforsale', (req, res) => {
     db.query('SELECT * FROM condoforsale', (err, results) => {
@@ -459,7 +465,7 @@ app.delete('/api/condoforsale/:id', (req, res) => {
 
   
 
-const PORT = process.env.PORT || 3000; // ใช้พอร์ต 4229 หรือพอร์ตที่ตั้งค่าใน .env
+const PORT = process.env.PORT || 5000; // ใช้พอร์ต 4229 หรือพอร์ตที่ตั้งค่าใน .env
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
