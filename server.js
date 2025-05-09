@@ -11,13 +11,14 @@ app.use(express.json());
 
 const db = mysql.createPool({
   host: env.DB_HOST || 'localhost', // ชื่อโฮสต์
-  user: env.DB_USER || 'healjaip__zOrhhI5tV86OVvUT8zTXDxDo5p0EZKlN', // ผู้ใช้ที่สร้างไว้
-  password: env.DB_PASSWORD || '25453055', // รหัสผ่านของผู้ใช้ (ใส่รหัสที่ใช้จริง)
-  database: env.DB_NAME || 'healjaip_', // ชื่อฐานข้อมูลที่ใช้งาน
+  user: env.DB_USER || 'healjaip_db', // ผู้ใช้ที่ระบบแจ้งไว้
+  password: env.DB_PASSWORD || '25453055', // รหัสผ่านของผู้ใช้
+  database: env.DB_NAME || 'healjaip_db', // ชื่อฐานข้อมูล
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
 });
+
 // API ดึงข้อมูลคอนโดทั้งหมด
 app.get('/api/condoforsale', (req, res) => {
     db.query('SELECT * FROM condoforsale', (err, results) => {
@@ -458,7 +459,7 @@ app.delete('/api/condoforsale/:id', (req, res) => {
 
   
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // ใช้พอร์ต 4229 หรือพอร์ตที่ตั้งค่าใน .env
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
