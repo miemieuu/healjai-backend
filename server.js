@@ -4,7 +4,7 @@ const cors = require('cors');
 
 env = process.env;
 const app = express();
-const port = env.PORT || 4229;
+const port = env.PORT || 3306;
 
 app.use(cors());
 app.use(express.json());
@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createPool({
   host: env.DB_HOST || 'localhost', // ชื่อโฮสต์
   user: env.DB_USER || 'healjaip_db', // ผู้ใช้ที่ระบบแจ้งไว้
-  password: env.DB_PASSWORD || '25453055', // รหัสผ่านของผู้ใช้
+  password: env.DB_PASSWORD || 'RJzU7c^msz0k%qs3', // รหัสผ่านของผู้ใช้
   database: env.DB_NAME || 'healjaip_db', // ชื่อฐานข้อมูล
   waitForConnections: true,
   connectionLimit: 10,
@@ -465,7 +465,7 @@ app.delete('/api/condoforsale/:id', (req, res) => {
 
   
 
-const PORT = process.env.PORT || 5000; // ใช้พอร์ต 4229 หรือพอร์ตที่ตั้งค่าใน .env
+const PORT = process.env.PORT || 3306; // ใช้พอร์ต 4229 หรือพอร์ตที่ตั้งค่าใน .env
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
